@@ -1,0 +1,49 @@
+<Window
+	x:Class="AvaloniaTestApp.Views.NewPersonWindow"
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:vm="using:AvaloniaTestApp.ViewModels"
+	Title="Add New Person"
+	Width="500"
+	SizeToContent="Height"
+	WindowStartupLocation="CenterScreen">
+
+	<!--  DataContext (ViewModel) which is used only during Design Time  -->
+	<Design.DataContext>
+		<vm:NewPersonViewModel />
+	</Design.DataContext>
+
+	<!--  Styles for the current control (it's like CSS)  -->
+	<Window.Styles>
+		<Style Selector="ComboBox">
+			<Setter Property="HorizontalAlignment" Value="Stretch" />
+		</Style>
+		<Style Selector="Button">
+			<Setter Property="HorizontalAlignment" Value="Right" />
+		</Style>
+	</Window.Styles>
+
+	<StackPanel Margin="30" Spacing="15">
+		<StackPanel Spacing="5">
+			<TextBlock Text="First Name:" />
+			<TextBox Text="{Binding FirstName}" />
+		</StackPanel>
+		<StackPanel Spacing="5">
+			<TextBlock Text="Last Name:" />
+			<TextBox Text="{Binding LastName}" />
+		</StackPanel>
+		<StackPanel Spacing="5">
+			<TextBlock Text="Department:" />
+			<ComboBox PlaceholderText="Select an option..." SelectedItem="{Binding DepartmentItem}">
+				<ComboBoxItem Content="IT" />
+				<ComboBoxItem Content="QA" />
+				<ComboBoxItem Content="HR" />
+			</ComboBox>
+		</StackPanel>
+
+		<!--  Button with a command  -->
+		<Button Command="{Binding AddPersonCommand}" Content="Add person" />
+	</StackPanel>
+</Window>

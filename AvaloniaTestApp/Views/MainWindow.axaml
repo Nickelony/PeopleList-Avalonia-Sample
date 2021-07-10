@@ -1,0 +1,17 @@
+<Window
+	x:Class="AvaloniaTestApp.Views.MainWindow"
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:vm="using:AvaloniaTestApp.ViewModels"
+	Title="People List App"
+	SizeToContent="WidthAndHeight"
+	WindowStartupLocation="CenterScreen">
+
+	<!--
+		Add link to the ViewModel only.
+		ViewLocator.cs will find the correct view automatically.
+	-->
+	<vm:MainViewModel />
+</Window>
